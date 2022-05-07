@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/to-do-list', function () {
-    return view('app');
+    return view('index');
 });
