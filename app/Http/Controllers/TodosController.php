@@ -44,4 +44,11 @@ class TodosController extends Controller
         */
         return redirect()->route('Todos')->with('success', 'Tarea actualizada');
     }
+
+    public function destroy($id) {
+        $todo = Todo::find($id);
+        $todo->delete();
+        return redirect()->route('Todos')->with('success', 'Tarea ha sido eliminada');
+    }
+
 }
