@@ -29,4 +29,19 @@ class TodosController extends Controller
         $todos = Todo::all();
         return view('index', ['todos' => $todos]);
     }
+
+    public function show($id) {
+        $todo = Todo::find($id);
+        return view('show', ['todo' => $todo]);
+    }
+
+    public function update(Request $request, $id) {
+        $todo = Todo::find($id);
+        $todo->title = $request->title;
+        $todo->save();
+        /* la función dd() se puede usar para debuguear variables
+        dd($todo);
+        */
+        return redirect()->route('Todos')->with('success', 'Tarea actualizada');
+    }
 }

@@ -16,12 +16,8 @@ use App\Http\Controllers\TodosController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-// Route::get('/to-do-list', function () {
-//     return view('index');
-// });
-
 Route::get('/to-do-list', [TodosController::class, 'index'])->name('Todos');
 Route::post('/to-do-list', [TodosController::class, 'store'])->name('Todos');
-Route::patch('/to-do-list', [TodosController::class, 'store'])->name('TodosEdit');
-Route::delete('/to-do-list', [TodosController::class, 'store'])->name('TodosDestroy');
+Route::get('/to-do-list/{id}', [TodosController::class, 'show'])->name('TodosShow');
+Route::patch('/to-do-list/{id}', [TodosController::class, 'update'])->name('TodosUpdate');
+Route::delete('/to-do-list/{id}', [TodosController::class, 'destroy'])->name('TodosDestroy');
