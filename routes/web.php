@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TodosController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::get('/to-do-list', function () {
     return view('index');
 });
+
+Route::post('/to-do-list', [TodosController::class, 'store'])->name('Todos');
