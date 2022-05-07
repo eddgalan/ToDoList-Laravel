@@ -17,8 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/to-do-list', function () {
-    return view('index');
-});
+// Route::get('/to-do-list', function () {
+//     return view('index');
+// });
 
+Route::get('/to-do-list', [TodosController::class, 'index'])->name('Todos');
 Route::post('/to-do-list', [TodosController::class, 'store'])->name('Todos');
+Route::patch('/to-do-list', [TodosController::class, 'store'])->name('TodosEdit');
+Route::delete('/to-do-list', [TodosController::class, 'store'])->name('TodosDestroy');
